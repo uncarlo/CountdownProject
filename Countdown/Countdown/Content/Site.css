@@ -1,0 +1,65 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.title .name {
+    width: 33%;
+    display: inline-block;
+}
+.days-until-release-title {
+    font-weight: bold;
+    width: 25%;
+    display: inline-block;
+}
+.phase {
+    font-size: 36px;
+    color: #151E2A;
+    text-align: center;
+    border-bottom: 1px solid #43545F;
+}
+
+.film {
+    width: 100%;
+    height: 23px;
+    border-bottom: 1px dotted #43545F;
+    font-size: 14px;
+}
+
+.film-name {
+    width: 33%;
+    display: inline-block;
+}
+.film-name a {
+    text-decoration: none;
+
+}
+
+.release-date {
+    font-weight: bold;
+    width: 25%;
+    display: inline-block;
+}
+
+.days-until-release {
+    font-weight: bold;
+    width: 25%;
+    display: inline-block;
+}
+
+.status {
+    width: 12%;
+    display: inline-block;
+}
