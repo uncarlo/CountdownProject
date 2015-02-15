@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using CountdownService;
+﻿using System.Web.Mvc;
+using CountdownService.Controllers;
 
 namespace Countdown.Controllers
 {
@@ -11,7 +7,7 @@ namespace Countdown.Controllers
     {
         public ActionResult Index()
         {
-            var movieList = new CountdownService.Controllers.MovieInfoController().Get();
+            var movieList = new MovieInfoController().Get();
             return View(movieList);
         }
 

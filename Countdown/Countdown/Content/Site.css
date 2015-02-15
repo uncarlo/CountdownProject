@@ -15,6 +15,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
 .title .name {
     width: 33%;
     display: inline-block;
