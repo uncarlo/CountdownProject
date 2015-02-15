@@ -1,9 +1,9 @@
-﻿@{
+﻿@model List<CountdownService.Models.MovieInfo>
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-
+    <div class="row">
         <div class="title">
             <span class="name">Name</span>
             <span class="release-date">Release Date</span>
@@ -11,6 +11,18 @@
             <span class="status">Status</span>
         </div>
         <div class="phase">Phase 1</div>
+        @foreach (var item in Model)
+        {
+        <div class="film">
+            <span class="film-name">
+                <a href="">@item.Name</a>
+            </span>
+            <span class="release-date">@item.ReleaseDate.ToShortDateString()</span>
+            <span class="days-until-release"></span>
+            <span class="status">@item.Status</span>
+        </div>
+
+        }
         <div class="film">
             <span class="film-name">
                 <a href="">Iron Man</a>
@@ -189,4 +201,4 @@
             <span class="days-until-release"></span>
             <span class="status"></span>
         </div>
-</div>
+    </div>
