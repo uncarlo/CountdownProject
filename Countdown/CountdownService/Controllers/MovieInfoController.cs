@@ -15,26 +15,30 @@ namespace CountdownService.Controllers
 		// Movie Phases:
 		// http://en.wikipedia.org/wiki/Marvel_Cinematic_Universe#Films
 
-		private static string DomainNameUrl = "http://api.rottentomatoes.com/api/public/v1.0";
-		private static string GetMethodUrl = "/movies.json?q=Marvel&page_limit=10&page=1&apikey=";
+		private static string DomainNameUrl = "http://api.rottentomatoes.com";
+		private static string GetMethodUrl = "/api/public/v1.0/movies.json?q=Marvel&page_limit=10&page=1&apikey=";
 		private static string APIKey = "748u4b2qvrhhwtuh3rrsee4g";
 
 		// GET api/movieinfo
 		public async Task<IEnumerable<MovieInfo>> GetAsync()
 		{
-			//			using (var client = new HttpClient())
-			//			{
-			//				client.BaseAddress = new Uri("http://localhost:9000/");
-			//				client.DefaultRequestHeaders.Accept.Clear();
-			//				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			//
-			//				// New code:
-			//				HttpResponseMessage response = await client.GetAsync("api/products/1");
-			//				if (response.IsSuccessStatusCode)
-			//				{
-			//
-			//				}
-			//			}
+//			using (var client = new HttpClient())
+//			{
+//				client.BaseAddress = new Uri(DomainNameUrl);
+//				client.DefaultRequestHeaders.Accept.Clear();
+//				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+//			
+//				// New code:
+//				HttpResponseMessage response = await client.GetAsync(GetMethodUrl + APIKey);
+//				if (response.IsSuccessStatusCode)
+//				{
+//			
+//				}
+//				else
+//				{
+//					
+//				}
+//			}
 
 			List<MovieInfo> movieInfoList = new List<MovieInfo>();
 
@@ -78,7 +82,7 @@ namespace CountdownService.Controllers
 			return await new Task<List<MovieInfo>>(x => movieInfoList, null);
 		}
 
-		public async Task<IEnumerable<MovieInfo>> Get()
+		public IEnumerable<MovieInfo> Get()
 		{
 			List<MovieInfo> movieInfoList = new List<MovieInfo>();
 
