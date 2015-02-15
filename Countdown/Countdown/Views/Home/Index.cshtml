@@ -23,6 +23,17 @@
         </div>
         }
         <div class="phase">Phase 2</div>
+        @foreach (var item in Model.Where(x => x.Phase == 2).ToList())
+        {
+            <div class="film">
+                <span class="film-name">
+                    <a href="">@item.Name</a>
+                </span>
+                <span class="release-date">@item.ReleaseDate.ToLongDateString()</span>
+                <span class="days-until-release"></span>
+                <span class="status">@item.Status</span>
+            </div>
+        }
         <div class="film">
             <span class="film-name">
                 <a href="">Iron Man 3</a>
@@ -72,6 +83,17 @@
             <span class="status"></span>
         </div>
         <div class="phase">Phase 3</div>
+        @foreach (var item in Model.Where(x => x.Phase == 3).ToList())
+        {
+            <div class="film">
+                <span class="film-name">
+                    <a href="">@item.Name</a>
+                </span>
+                <span class="release-date">@item.ReleaseDate.ToLongDateString()</span>
+                <span class="days-until-release"></span>
+                <span class="status">@item.Status</span>
+            </div>
+        }
         <div class="film">
             <span class="film-name">
                 <a href="">Captain America: Civil War</a>
