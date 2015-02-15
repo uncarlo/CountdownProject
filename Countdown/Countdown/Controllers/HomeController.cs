@@ -12,7 +12,7 @@ namespace Countdown.Controllers
         public ActionResult Index()
         {
             var movieList = new CountdownService.Controllers.MovieInfoController().Get();
-            return View(movieList.ToList());
+            return View(movieList);
         }
 
         public ActionResult About()

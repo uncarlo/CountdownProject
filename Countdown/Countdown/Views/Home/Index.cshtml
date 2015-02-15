@@ -1,4 +1,4 @@
-﻿@model List<CountdownService.Models.MovieInfo>
+﻿@model IEnumerable<CountdownService.Models.MovieInfo>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -11,66 +11,17 @@
             <span class="status">Status</span>
         </div>
         <div class="phase">Phase 1</div>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Where(x => x.Phase == 1).ToList())
         {
         <div class="film">
             <span class="film-name">
                 <a href="">@item.Name</a>
             </span>
-            <span class="release-date">@item.ReleaseDate.ToShortDateString()</span>
+            <span class="release-date">@item.ReleaseDate.ToLongDateString()</span>
             <span class="days-until-release"></span>
             <span class="status">@item.Status</span>
         </div>
-
         }
-        <div class="film">
-            <span class="film-name">
-                <a href="">Iron Man</a>
-            </span>
-            <span class="release-date">May 2, 2008</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
-        <div class="film">
-            <span class="film-name">
-                <a href="">The Incredible Hulk</a>
-            </span>
-            <span class="release-date">June 13, 2008</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
-        <div class="film">
-            <span class="film-name">
-                <a href="">Iron Man 2</a>
-            </span>
-            <span class="release-date">May 7, 2010</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
-        <div class="film">
-            <span class="film-name">
-                <a href="">Thor</a>
-            </span>
-            <span class="release-date">May 6, 2011</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
-        <div class="film">
-            <span class="film-name">
-                <a href="">Captain America: The First Avenger</a>
-            </span>
-            <span class="release-date">July 22, 2011</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
-        <div class="film">
-            <span class="film-name">
-                <a href="">Marvel's The Avengers</a>
-            </span>
-            <span class="release-date">May 4, 2012</span>
-            <span class="days-until-release"></span>
-            <span class="status"></span>
-        </div>
         <div class="phase">Phase 2</div>
         <div class="film">
             <span class="film-name">
