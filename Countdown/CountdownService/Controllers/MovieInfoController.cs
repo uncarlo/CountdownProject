@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Script.Serialization;
+using CountdownService.Helpers;
 using CountdownService.Models;
 using CountdownService.Models.Enums;
 
@@ -22,23 +26,12 @@ namespace CountdownService.Controllers
 		// GET api/movieinfo
 		public async Task<IEnumerable<MovieInfo>> GetAsync()
 		{
-//			using (var client = new HttpClient())
-//			{
-//				client.BaseAddress = new Uri(DomainNameUrl);
-//				client.DefaultRequestHeaders.Accept.Clear();
-//				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-//			
-//				// New code:
-//				HttpResponseMessage response = await client.GetAsync(GetMethodUrl + APIKey);
-//				if (response.IsSuccessStatusCode)
-//				{
-//			
-//				}
-//				else
-//				{
-//					
-//				}
-//			}
+			var json = new WebClient().DownloadString(DomainNameUrl + GetMethodUrl + APIKey);
+
+			var serializer = new JavaScriptSerializer();
+			serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+
+			dynamic obj = serializer.Deserialize(json, typeof(object));
 
 			List<MovieInfo> movieInfoList = new List<MovieInfo>();
 
@@ -86,6 +79,7 @@ namespace CountdownService.Controllers
 		{
 			List<MovieInfo> movieInfoList = new List<MovieInfo>();
 
+			// Phase 1
 			movieInfoList.Add(new MovieInfo
 			{
 				Name = "Iron Man",
@@ -121,6 +115,106 @@ namespace CountdownService.Controllers
 				Name = "Marvel's The Avengers",
 				ReleaseDate = new DateTime(2012, 5, 4),
 				Phase = 1
+			});
+
+			// Phase 2
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Iron Man 3",
+				ReleaseDate = new DateTime(2013, 5, 3),
+				Phase = 2
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Thor: The Dark World",
+				ReleaseDate = new DateTime(2013, 11, 8),
+				Phase = 2
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Captain America: The Winter Soldier",
+				ReleaseDate = new DateTime(2014, 4, 4),
+				Phase = 2
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Guardians of the Galaxy",
+				ReleaseDate = new DateTime(2014, 8, 1),
+				Phase = 2
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Avengers: Age of Ultron",
+				ReleaseDate = new DateTime(2015, 5, 1),
+				Phase = 2
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Ant-Man",
+				ReleaseDate = new DateTime(2015, 7, 17),
+				Phase = 2
+			});
+
+			// Phase 3
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Captain America: Civil War",
+				ReleaseDate = new DateTime(2016, 5, 6),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Doctor Strange",
+				ReleaseDate = new DateTime(2016, 11, 4),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Guardians of the Galaxy 2",
+				ReleaseDate = new DateTime(2017, 5, 5),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Spider-Man",
+				ReleaseDate = new DateTime(2017, 7, 28),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Thor: Ragnarok",
+				ReleaseDate = new DateTime(2017, 11, 3),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Avengers: Infinity War Part 1",
+				ReleaseDate = new DateTime(2018, 5, 4),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Black Panther",
+				ReleaseDate = new DateTime(2018, 7, 6),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Captain Marvel",
+				ReleaseDate = new DateTime(2018, 11, 2),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Avenger: Infinity War Part 2",
+				ReleaseDate = new DateTime(2019, 5, 3),
+				Phase = 3
+			});
+			movieInfoList.Add(new MovieInfo
+			{
+				Name = "Inhumans",
+				ReleaseDate = new DateTime(2019, 7, 12),
+				Phase = 3
 			});
 
 			return movieInfoList;
