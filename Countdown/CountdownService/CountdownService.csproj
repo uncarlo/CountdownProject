@@ -143,7 +143,6 @@
     <Compile Include="Models\MovieInfo.cs" />
     <Compile Include="MovieService\IMovieProvider.cs" />
     <Compile Include="MovieService\MovieService.cs" />
-    <Compile Include="MovieService\Services\MovieProviderTypes.cs" />
     <Compile Include="MovieService\Services\MockMovieProvider.cs" />
     <Compile Include="MovieService\Services\MovieDBProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
