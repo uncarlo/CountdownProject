@@ -5,12 +5,14 @@ namespace Countdown.Controllers
 {
     public class HomeController : Controller
     {
+        [Route("")]
         public ActionResult Index()
         {
             var movieList = new MovieInfoController().Get();
             return View(movieList);
         }
 
+        [Route("Home/test")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
