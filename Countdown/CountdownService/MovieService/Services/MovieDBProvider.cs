@@ -29,6 +29,16 @@ namespace CountdownService.MovieService.Services
 			throw new System.NotImplementedException();
 		}
 
+		public MovieInfo GetMovieById(int movieId)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public Task<MovieInfo> GetMovieByIdAsync(int movieId)
+		{
+			throw new System.NotImplementedException();
+		}
+
 		#endregion Public Methods
 	}
 }

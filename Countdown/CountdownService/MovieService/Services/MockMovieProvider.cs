@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CountdownService.Models;
 
@@ -201,6 +202,16 @@ namespace CountdownService.MovieService.Services
 			_movieInfoList.Add(movie);
 
 			return await new Task<bool>(x => true, null);
+		}
+
+		public MovieInfo GetMovieById(int movieId)
+		{
+			return _movieInfoList.FirstOrDefault(x => x.ID == movieId);
+		}
+
+		public async Task<MovieInfo> GetMovieByIdAsync(int movieId)
+		{
+			return await new Task<MovieInfo>(x => _movieInfoList.FirstOrDefault(m => m.ID == movieId), null);
 		}
 
 		#endregion Public Methods

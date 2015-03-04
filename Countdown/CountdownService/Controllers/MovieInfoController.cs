@@ -41,9 +41,14 @@ namespace CountdownService.Controllers
 		}
 
 		// GET api/movieinfo/5
-		public string Get(int id)
+		public MovieInfo Get(int id)
 		{
-			return "value";
+			return MovieService.MovieService.Instance.MovieProvider.GetMovieById(id);
+		}
+
+		public async Task<MovieInfo> GetAsync(int id)
+		{
+			return await MovieService.MovieService.Instance.MovieProvider.GetMovieByIdAsync(id);
 		}
 
 		// POST api/movieinfo
