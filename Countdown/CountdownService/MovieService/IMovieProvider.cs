@@ -11,6 +11,8 @@ namespace CountdownService.MovieService
 
 		List<MovieInfo> GetMovies(string searchQuery);
 		Task<List<MovieInfo>> GetMoviesAsync(string searchQuery);
+		bool AddMovie(MovieInfo movie);
+		Task<bool> AddMovieAsync(MovieInfo movie);
 
 		#endregion Public Methods
 	}

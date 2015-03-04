@@ -19,6 +19,16 @@ namespace CountdownService.MovieService.Services
 			throw new System.NotImplementedException();
 		}
 
+		public bool AddMovie(MovieInfo movie)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public Task<bool> AddMovieAsync(MovieInfo movie)
+		{
+			throw new System.NotImplementedException();
+		}
+
 		#endregion Public Methods
 	}
 }

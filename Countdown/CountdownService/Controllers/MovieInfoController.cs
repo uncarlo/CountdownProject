@@ -47,8 +47,9 @@ namespace CountdownService.Controllers
 		}
 
 		// POST api/movieinfo
-		public void Post([FromBody]string value)
+		public void Post([FromBody]MovieInfo movie)
 		{
+			MovieService.MovieService.Instance.MovieProvider.AddMovie(movie);
 		}
 
 		// PUT api/movieinfo/5
