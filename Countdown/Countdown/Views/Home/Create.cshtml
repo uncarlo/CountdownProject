@@ -26,7 +26,7 @@
                 <label for="ReleaseDate">
                     Release Date
                 </label>
-                @Html.TextBoxFor(model => model.ReleaseDate)
+                @Html.TextBoxFor(model => model.ReleaseDate.ToShortDateString())
             </div>
             <div class="movie-phase">
                 <label for="Phase">

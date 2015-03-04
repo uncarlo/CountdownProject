@@ -16,7 +16,7 @@ namespace Countdown.Controllers
             return View(movieList);
         }
 
-        [Route("Home/Details/{movieId}")]
+        [Route("Home/Details/{movieId:int}")]
         public ActionResult Details(int movieId)
         {
             var movie = new MovieInfoController().Get(movieId);

@@ -44,7 +44,7 @@ namespace CountdownService.MovieService.Services
 			new MovieInfo 
 			{
 				ID = 5,
-				Name = "Captain America: The First",
+				Name = "Captain America: The First Avenger",
 				ReleaseDate = new DateTime(2011, 7, 22),
 				Phase = 1
 			},
