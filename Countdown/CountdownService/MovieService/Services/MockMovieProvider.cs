@@ -196,7 +196,7 @@ namespace CountdownService.MovieService.Services
 
 		public async Task<bool> AddMovieAsync(MovieInfo movie)
 		{
-			movie.ID = _movieInfoList.Count;
+			movie.ID = _movieInfoList.Count + 1;
 
 			_movieInfoList.Add(movie);
 
