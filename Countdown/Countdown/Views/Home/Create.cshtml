@@ -1,0 +1,52 @@
+﻿@model CountdownService.Models.MovieInfo
+
+@{
+    ViewBag.Title = "Add New Movie";
+}
+
+<h2>Add New Movie</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MovieInfo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-items">
+            <div class="movie-name">
+                <label for="Name">
+                    Name
+                </label>
+                @Html.TextBoxFor(model => model.Name)
+            </div>
+            <div class="movie-release-date">
+                <label for="ReleaseDate">
+                    Release Date
+                </label>
+                @Html.TextBoxFor(model => model.ReleaseDate)
+            </div>
+            <div class="movie-phase">
+                <label for="Phase">
+                    Phase
+                </label>
+                @Html.DropDownListFor(model => model.Phase, new SelectList("123"))
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

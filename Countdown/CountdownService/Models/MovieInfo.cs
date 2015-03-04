@@ -5,9 +5,9 @@ namespace CountdownService.Models
 {
 	public class MovieInfo
 	{
-		public string Name { get; internal set; }
-		public DateTime ReleaseDate { get; internal set; }
-		public int Phase { get; internal set; }
+		public string Name { get; set; }
+		public DateTime ReleaseDate { get; set; }
+		public int Phase { get; set; }
 
 		public MovieStatus Status
 		{
