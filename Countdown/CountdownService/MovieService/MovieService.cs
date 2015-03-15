@@ -13,7 +13,7 @@ namespace CountdownService.MovieService
 
 		private MovieService()
 		{
-#if TestingMode
+#if TestMode
 			MovieProvider = new MockMovieProvider();
 #else
 			MovieProvider = new MovieDBProvider();

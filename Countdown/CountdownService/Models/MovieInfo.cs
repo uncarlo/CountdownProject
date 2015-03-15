@@ -42,5 +42,32 @@ namespace CountdownService.Models
 				return movieStatus;
 			}
 		}
+
+		internal static MovieInfo GetMovieFromJson(dynamic movieData)
+		{
+			DateTime releaseDate = DateTime.Parse(movieData.release_date);
+			return new MovieInfo
+			{
+				ID = movieData.id,
+				Name = movieData.title,
+				Phase = GetMoviePhaseFromReleaseDate(releaseDate),
+				ReleaseDate = releaseDate
+			};
+		}
+
+		private static int GetMoviePhaseFromReleaseDate(DateTime movieDate)
+		{
+			int year = movieDate.Year;
+			if (year <= 2012)
+			{
+				return 1;
+			}
+			else if (year >= 2013 && year <= 2015)
+			{
+				return 2;
+			}
+
+			return 3;
+		}
 	}
 }
